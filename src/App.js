@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
 import Count from './components/Count';
-import Post from './components/Post';
+// import Post from './components/Post';
 
 function App() {
   const count = useSelector((state) => state.countReducer.count);
@@ -20,7 +20,7 @@ function App() {
       <Count />
       <button onClick={increase}>Up</button>
       <button onClick={decrease}>Down</button>
-      <Post />
+      {/* <Post /> */}
     </div>
   );
 }
