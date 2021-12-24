@@ -1,7 +1,11 @@
 import { createStore } from "redux";
 
 const initialState = {
-  count: 100,
+  count: 50,
+  posts: [
+    { id: 1, title: "Reduxについて" },
+    { id: 1, title: "ReduxのHooksについて" },
+  ],
 }
 const reducer = (state = initialState) => {
   return state;
