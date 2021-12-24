@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 // const initialState = {
 //   count: 50,
@@ -49,6 +50,19 @@ const rootReducer = combineReducers({
   postsReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 console.log(store.getState());
+
 export default store;
+
+export const getPosts = () => {
+  return async(dispatch) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await res.json();
+    dispatch({
+      type: 'GET_POST_DATA',
+      payload: data,
+    });
+  }
+  
+};
